@@ -32,7 +32,7 @@ def get_clues(guess, secret_num):
 
 
 def is_only_digits(num):
-    if num =='':
+    if num == '':
         return False
 
     for i in num:
@@ -40,7 +40,8 @@ def is_only_digits(num):
             return False
     return True
 
-print('Я загадаю %s-х значное число, которое вы должны отгадать.' % (num_digits))
+
+print('Я загадаю %s-х значное число, которое вы должны отгадать.' % num_digits)
 print('Я дам несколько подсказок...')
 print('Когда я говорю:  Это означает:')
 print(' Холодно         Ни одна цифра не отгадана.')
@@ -49,22 +50,22 @@ print(' Горячо          Одна цифра и ее позиция отг�
 
 while True:
     secret_num = get_secret_num()
-    print('Итак, я загадал число. У вас есть %s попыток, чтобы отгадать его.' % (max_guess))
+    print('Итак, я загадал число. У вас есть %s попыток, чтобы отгадать его.' % max_guess)
 
     guesses_taken = 1
-    while guesses_taken<=max_guess:
+    while guesses_taken <= max_guess:
         guess = ''
         while len(guess) != num_digits or not is_only_digits(guess):
-            print('Попытка No%s: ' % (guesses_taken))
+            print('Попытка No%s: ' % guesses_taken)
             guess = input()
 
         print(get_clues(guess, secret_num))
-        guesses_taken +=1
+        guesses_taken += 1
 
         if guess == secret_num:
             break
         if guesses_taken > max_guess:
-            print('Попыток больше не осталось. Я загадал число %s.' % (secret_num))
+            print('Попыток больше не осталось. Я загадал число %s.' % secret_num)
 
     print('Хотите сыграть еще раз? (да или нет)')
     if not input().lower().startswith('д'):
