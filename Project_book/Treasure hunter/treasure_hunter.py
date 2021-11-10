@@ -18,7 +18,7 @@ def get_new_board():
 
 
 def draw_board(board):
-    tens_digits_line = ' '
+    tens_digits_line = '    '
     for i in range(1, 6):
         tens_digits_line += (' ' * 9) + str(i)
 
