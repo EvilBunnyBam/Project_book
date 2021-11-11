@@ -103,8 +103,8 @@ def play_again():
 
 print("В И С Е Л И Ц А")
 
-difficulty = 'x'
-while difficulty not in ['л', 'с', 'т']:
+difficulty = ''
+while difficulty not in 'лст':
     print('Выберите уровень сложности: Л - Легкий, С - Средний, Т - Тяжелый')
     difficulty = input().lower()
 if difficulty == 'c':
@@ -135,9 +135,9 @@ while True:
             if secret_word[i] not in correct_letters:
                 found_all_letters = False
                 break
-            if found_all_letters:
-                print("ДА! Секретное слово - " + secret_word + "! Вы угадали!")
-                game_is_done = True
+        if found_all_letters:
+            print("ДА! Секретное слово - " + secret_word + "! Вы угадали!")
+            game_is_done = True
     else:
         missed_letters = missed_letters + guess
 
